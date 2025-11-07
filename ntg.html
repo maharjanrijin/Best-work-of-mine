@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 🎉</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+      min-height: 200vh; /* allows scrolling */
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      line-height: 1.6em;
+    }
+    button {
+      background: #ff6b6b;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ff4757;
+      transform: scale(1.05);
+    }
+    canvas {
+      position: absolute; /* changed from fixed */
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .message {
+      max-width: 600px;
+      margin: 80px auto;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>🎂 Happy Birthday! 🎉</h1>
+  <p>Wishing you a day full of happiness and a year filled with joy 💖</p>
+  <button id="celebrate">Celebrate!</button>
+
+  <div class="message">
+    <h2>💌 A special note just for you</h2>
+    <p>
+      You’re truly one of a kind. You are veryyy kind, funny, and full of warmth.  
+      I hope today brings you all the smiles and moments you deserve.  
+      Scroll down, take a breath, and let yourself feel loved 🌷
+    </p>
+  </div>
+
+  <div class="message">
+    <h2>✨ More wishes</h2>
+    <p>
+      May your dreams grow bigger, your laughter louder,  
+      and your days brighter than ever. You deserve all the goodness this world has to offer.
+    </p>
+  </div>
+
+  <canvas id="confetti"></canvas>
+
+  <script>
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+    let W, H;
+    function resize() {
+      W = canvas.width = document.body.scrollWidth;
+      H = canvas.height = document.body.scrollHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function makeConfetti() {
+      const colors = ["#FF6B6B", "#FFD166", "#06D6A0", "#4D96FF", "#C86FC6"];
+      const confetti = [];
+      for (let i = 0; i < 150; i++) {
+        confetti.push({
+          x: random(0, W),
+          y: random(-H, 0),
+          r: random(5, 10),
+          color: colors[Math.floor(Math.random() * colors.length)],
+          vy: random(2, 8),
+          vx: random(-4, 4),
+        });
+      }
+      return confetti;
+    }
+
+    let confetti = [];
+
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      for (let c of confetti) {
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+        ctx.fillStyle = c.color;
+        ctx.fill();
+        c.x += c.vx;
+        c.y += c.vy;
+        if (c.y > H) c.y = -10;
+      }
+      requestAnimationFrame(animate);
+    }
+
+    document.getElementById("celebrate").addEventListener("click", () => {
+      confetti = makeConfetti();
+      animate();
+    });
+  </script>
+  <div class="message">
+<h1> MY QUEEN! </h1>
+<p1>Happy Birthday, my angel. I hope this day brings you as much joy as you’ve brought into my heart. I’m so proud of who you are and your strength, your kindness, and your heart that shines brighter than anything I’ve ever known. On your special day, I just want to remind you that you’re loved endlessly, not just today but always. You deserve all the happiness in this world, all the love, and every little dream of yours to come true. </p1> <br>
+<p2> My love, today isn’t just your birthday, it’s the most special day because it’s the day you came into this world, and one day, into my life. I honestly can’t even put into words how much you mean to me and how mush i love you ling lingg. You’ve brought so much happiness, warmth, and peace into my world that I sometimes wonder what I ever did to deserve someone as amazing as you. I am so happy for both of us </p2> <br
+<p3> Through all our fightd that would most likely would have broke most prople's relationshio, we always stick together and always find a way. No matter what we always choose eachother and be happy again and agian. I absolutely love that about us!</p3> <br>
+<img src="C:\Users\acer\OneDrive\Desktop\codes\Pic\Bintoi 1.png" width=50 height=50>
+<h3> RIJAN + BINITA = FOREVER💗💞💕
+</body>
+</html>
